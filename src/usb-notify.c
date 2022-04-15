@@ -51,14 +51,12 @@ int display_notification(struct udev_device *dev)
                                                                     "product");
                 const char *vid = udev_device_get_sysattr_value(dev, "idVendor");
                 const char *pid = udev_device_get_sysattr_value(dev, "idProduct");
-                const char *serial = udev_device_get_sysattr_value(dev, "serial");
 
                 char *message;
                 if (0 > asprintf(&message,
                                  "Product : %s\n"
-                                 "Serial #: %s\n"
                                  "Vid-Pid: %s-%s",
-                                 product, serial, vid, pid))
+                                 product, vid, pid))
                 {
                     printf("[!] Error allocating char\n");
                 }
@@ -66,7 +64,7 @@ int display_notification(struct udev_device *dev)
 
                 /* Display notification */
                 NotifyNotification *n_usb = notify_notification_new(
-                        "usb-notify", message, "dialog-information");
+                        "USB Connected", message, "dialog-information");
                 notify_notification_show(n_usb, NULL);
                 g_object_unref(G_OBJECT(n_usb));
             }
