@@ -1,0 +1,14 @@
+# Always start this service as user
+# systemctl --user enable my.service
+
+[Unit]
+Description=Desktop USB Notification Daemon
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/usb-notify
+
+[Install]
+WantedBy=default.target
