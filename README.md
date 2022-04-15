@@ -12,7 +12,7 @@ It then uses the libnotify framework to display a message to the current user.
 You will need libudev and libnotify for this application to build.
 
 ## Usage
-### SystemD
+### systemd
 Since it depends on user session to send notification, setup the service as a user:
 ```bash
 systemctl --user link /absolute/path/to/usb-notify/systemd/usbnotify.service
