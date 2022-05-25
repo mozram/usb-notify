@@ -11,6 +11,8 @@ It then uses the libnotify framework to display a message to the current user.
 ## Building
 You will need libudev and libnotify for this application to build.
 
+`aplay` is needed in the system to play audio.
+
 ## Usage
 ### systemd
 Since it depends on user session to send notification, setup the service as a user:

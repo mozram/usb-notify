@@ -67,6 +67,9 @@ int display_notification(struct udev_device *dev)
                         "USB Connected", message, "dialog-information");
                 notify_notification_show(n_usb, NULL);
                 g_object_unref(G_OBJECT(n_usb));
+
+                /* Play sound. Ideally play sound once every 5 sec, but stick to simplest implementation ATM */
+                system("aplay /opt/usbnotify/usb-insert.wav >/dev/null 2>&1");
             }
             else
             {
