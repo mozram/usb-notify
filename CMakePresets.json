@@ -17,10 +17,6 @@
           "type": "BOOL",
           "value": "ON"
         }
-      },
-      "environment": {
-        "MY_ENVIRONMENT_VARIABLE": "Test",
-        "PATH": "$env{HOME}/ninja/bin:$penv{PATH}"
       }
     },
     {
