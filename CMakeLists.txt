@@ -30,7 +30,6 @@ if(CFG_USE_SOUND_NOTIFICATION)
     target_compile_definitions(${PROJECT_NAME} PRIVATE USB_NOTIFY_PLAY_SOUND)
 endif(CFG_USE_SOUND_NOTIFICATION)
 
-
 # Add compile options
 target_compile_options(${PROJECT_NAME} PRIVATE -ansi -pedantic -g -std=c99 -W -Wextra -Wall)
 
@@ -40,8 +39,3 @@ pkg_check_modules(deps REQUIRED IMPORTED_TARGET glib-2.0 libnotify udev)
 
 # Link project to dependencies
 target_link_libraries(${PROJECT_NAME} PkgConfig::deps -ludev)
-
-# Options (provide control over project setup)
-option(${PROJECT_NAME}_USE_DOXYGEN "Add a Doxygen target to generate documentation" OFF)
-option(${PROJECT_NAME}_USE_ADDITIONAL_SOURCEFILE "Use the additional source file" OFF)
-option(${PROJECT_NAME}_INSTALL "Should ${PROJECT_NAME} be added to the install list?" OFF)
