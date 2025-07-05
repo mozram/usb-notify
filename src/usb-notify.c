@@ -64,8 +64,8 @@ int display_notification(struct udev_device *dev)
                 printf("[#] Displaying message: \n%s\n", message);
 
                 /* Display notification */
-                NotifyNotification *n_usb = notify_notification_new(
-                        "USB Connected", message, "dialog-information");
+                NotifyNotification *n_usb = notify_notification_new( "USB Connected", message, "dialog-information");
+                notify_notification_set_timeout ( n_usb, 5000 );
                 notify_notification_show(n_usb, NULL);
                 g_object_unref(G_OBJECT(n_usb));
 
